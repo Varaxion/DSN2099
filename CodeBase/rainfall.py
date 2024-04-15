@@ -7,7 +7,7 @@ from sklearn.metrics import mean_absolute_error, explained_variance_score
 
 
 def rainfall(year, region):
-    data = pd.read_csv('data/Sub_Division_IMD_2017.csv')
+    data = pd.read_csv('data\Sub_Division_IMD_2021.csv')
 
     if data.isna().sum().sum() > 0:
         # Remove rows containing NaN values
