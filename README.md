@@ -10,22 +10,22 @@ The web application provides users with insights into flood prediction and rainf
 
  _**Approach**_
 
-    Data Collection and Preprocessing:
-        Historical data on river discharge, flood runoff, daily runoff, and weekly runoff was gathered from various sources.
-        The data was preprocessed to handle missing values and ensure consistency.
+1. Data Collection and Preprocessing:
+    Historical data on river discharge, flood runoff, daily runoff, and weekly runoff was gathered from various sources.
+    The data was preprocessed to handle missing values and ensure consistency.
 
-    Model Development:
-        Machine learning models for flood prediction were developed using ARIMA and classification algorithms.
+2. Model Development:
+    Machine learning models for flood prediction were developed using ARIMA and classification algorithms.
 
-    Web Application Development:
-        A suitable web development framework like Flask was chosen.
-        User-friendly interfaces for data input, visualization, and result display were designed.
+3. Web Application Development:
+    A suitable web development framework like Flask was chosen.
+    User-friendly interfaces for data input, visualization, and result display were designed.
 
-    Frontend Development:
-        Interactive frontend components were developed using HTML, CSS, and JavaScript.
+4. Frontend Development:
+    Interactive frontend components were developed using HTML, CSS, and JavaScript.
 
-    Backend Implementation:
-        A backend server was set up to handle requests and interact with the machine learning models.
+5. Backend Implementation:
+    A backend server was set up to handle requests and interact with the machine learning models.
 
-    Testing and Validation:
-        Thorough testing of the application was conducted to validate model accuracy and functionality.
+6. Testing and Validation:
+    Thorough testing of the application was conducted to validate model accuracy and functionality.
