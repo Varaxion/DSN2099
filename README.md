@@ -10,7 +10,7 @@ The web application provides users with insights into flood prediction and rainf
 
  _**Approach**_
 
-      Data Collection and Preprocessing:
+    Data Collection and Preprocessing:
         Historical data on river discharge, flood runoff, daily runoff, and weekly runoff was gathered from various sources.
         The data was preprocessed to handle missing values and ensure consistency.
 
