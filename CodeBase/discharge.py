@@ -1,10 +1,8 @@
-import matplotlib
-matplotlib.use('Agg')  # Use non-interactive backend
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
+from sklearn.metrics import mean_absolute_error
 
 # Loading data
 def discharge_forecast(filename, wtd):
@@ -93,4 +91,10 @@ def discharge_forecast(filename, wtd):
     df4['Discharge'] = abs(df4['Discharge'])
     df4.to_csv('data/forecast/' + filename + '_discharge_forecast.csv', index=False)
 
+    if wtd == 0:
+        print("mean_absolute_error=", mean_absolute_error(ytest, ypred))
+
     return df4
+
+# Example usage:
+# discharge_forecast("your_filename", 0)  # Replace "your_filename" with the actual filename and 0 for training, 1 for testing

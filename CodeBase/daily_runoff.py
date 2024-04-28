@@ -1,11 +1,8 @@
 import pandas as pd
-import numpy as np
-import itertools
 from sklearn.preprocessing import MinMaxScaler
-from datetime import datetime
 import matplotlib.pyplot as plt
-import joblib
 import statsmodels.api as sm
+from sklearn.metrics import mean_absolute_error
 
 # Loading data
 def daily_runoff_forecast(filename, wtd):
@@ -97,5 +94,7 @@ def daily_runoff_forecast(filename, wtd):
     df4['daily runoff'] = abs(df4['daily runoff'])
     df4.to_csv('data/forecast/' + filename + '_daily_runoff_forecast.csv', index=False)
 
-    return df4
+    if wtd == 0:
+        print("mean_absolute_error=", mean_absolute_error(ytest, ypred))
 
+    return df4

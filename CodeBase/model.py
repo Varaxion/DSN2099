@@ -1,14 +1,11 @@
 import pandas as pd
-from datetime import datetime
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import MinMaxScaler
 from imblearn.over_sampling import SMOTE
 from sklearn.utils import shuffle
-from sklearn.metrics import mean_absolute_error, classification_report
+from sklearn.metrics import mean_absolute_error
 import numpy as np
 from joblib import load
 import warnings
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
 warnings.filterwarnings("ignore")
 

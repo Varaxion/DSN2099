@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
-import joblib
 import statsmodels.api as sm
+from sklearn.metrics import mean_absolute_error
 
 def weekly_runoff_forecast(filename, wtd):
     def import_data():
@@ -87,5 +86,8 @@ def weekly_runoff_forecast(filename, wtd):
     df4['weekly runoff'] = val
     df4['weekly runoff'] = abs(df4['weekly runoff'])
     df4.to_csv('data/forecast/' + filename + '_weekly_runoff_forecast.csv', index=False)
+
+    if wtd == 0:
+        print("mean_absolute_error=", mean_absolute_error(ytest, ypred))
 
     return df4

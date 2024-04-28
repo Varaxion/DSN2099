@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
-from wtforms import StringField, SubmitField, TextAreaField
-from wtforms.validators import DataRequired, Email
 import driver
 import rainfall
 import alerter

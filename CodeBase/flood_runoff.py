@@ -1,9 +1,8 @@
 import pandas as pd
-import numpy as np
 from sklearn.preprocessing import MinMaxScaler
 import matplotlib.pyplot as plt
-import joblib
 import statsmodels.api as sm
+from sklearn.metrics import mean_absolute_error
 
 # Loading data
 def flood_runoff_forecast(filename, wtd):
@@ -91,5 +90,8 @@ def flood_runoff_forecast(filename, wtd):
     df4['flood runoff'] = val
     df4['flood runoff'] = abs(df4['flood runoff'])
     df4.to_csv('data/forecast/' + filename + '_flood_runoff_forecast.csv', index=False)
+
+    if wtd == 0:
+        print("mean_absolute_error=", mean_absolute_error(ytest, ypred))
 
     return df4

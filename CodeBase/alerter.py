@@ -70,4 +70,3 @@ def water_level_predictor():
 
     y_pred.to_csv('data/forecast/forecasted_level_of_rivers.csv', index=False)
     return
-
