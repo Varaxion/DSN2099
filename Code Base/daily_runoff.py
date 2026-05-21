@@ -1,5 +1,7 @@
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
+import matplotlib
+matplotlib.use('Agg')  # Non-interactive backend — prevents blocking the server
 import matplotlib.pyplot as plt
 import statsmodels.api as sm
 from sklearn.metrics import mean_absolute_error
@@ -25,8 +27,8 @@ def daily_runoff_forecast(filename, wtd):
     data = data.set_index(['Date'])
 
     # Resampling
-    monthly = data.resample('M').sum()
-    weekly = data.resample('W').sum()
+    monthly = data.resample('ME').sum()
+    weekly = data.resample('W-SUN').sum()
     daily = data.resample('D').sum()
 
     # Scaling
@@ -67,8 +69,8 @@ def daily_runoff_forecast(filename, wtd):
             df3 = pd.DataFrame({'ds': pd.date_range(start=df2['ds'].iloc[-1], periods=30 * 25, freq='D'), 'yhat': forecast})
             df4 = df3.iloc[6940:-20, :]
         else:
-            forecast = arima_model.forecast(steps=30 * 12) # Example steps, adjust as needed
-            df3 = pd.DataFrame({'ds': pd.date_range(start=df2['ds'].iloc[-1], periods=30 * 12, freq='D'), 'yhat': forecast})
+            forecast = arima_model.forecast(steps=3000)
+            df3 = pd.DataFrame({'ds': pd.date_range(start=df2['ds'].iloc[-1], periods=3000, freq='D'), 'yhat': forecast})
             df4 = df3
         return df4
 
@@ -76,15 +78,7 @@ def daily_runoff_forecast(filename, wtd):
     ypred = df4.iloc[:, 1:]
     ytest = df1.iloc[:, :]
 
-    # Plotting and saving forecasted data
-    plt.figure(figsize=(10, 6))
-    plt.plot(df2['ds'], df2['y'], label='Actual')
-    plt.plot(df4['ds'], df4['yhat'], label='Forecast')
-    plt.xlabel('Date')
-    plt.ylabel('daily runoff')
-    plt.title('Simple Test')
-    plt.legend()
-    plt.show()
+    # (Plot display removed — non-interactive backend in use)
 
     df4.columns = ['Date', 'daily runoff']
     values = df4['daily runoff'].values.reshape(-1, 1)

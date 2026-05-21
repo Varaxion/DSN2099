@@ -1,31 +1,131 @@
-# Sahay - Rainfall Analysis & Flood Prediction
+# Sahay - Flood & Rainfall Intelligence
 
-Project Exhibition-2 by Team-204
+> ML-powered flood prediction and rainfall analysis for Indian river systems and meteorological subdivisions.
 
-In disaster response, we've implemented flood warning system. Our user interface lets people check future river levels and get alerts for potential floods within 12 months. They can also view historical river data and rainfall patterns in their area, helping them prepare and minimize losses.
+---
 
-_**Overview**_
+## Overview
 
-The web application provides users with insights into flood prediction and rainfall analysis based on historical data. It leverages machine learning models to forecast discharge, flood runoff, daily runoff, and weekly runoff. The application also includes functionalities for alerting users about potential flood occurrences based on forecasted river levels.
+**Sahay** (सहाय — *aid* in Sanskrit) is a Flask web application for hydrological intelligence, built during Project Exhibition 2. It provides:
 
- _**Approach**_
+- **Flood Prediction** — Predict water level classification (Normal / High) for five major Indian rivers using ARIMA time-series forecasting and an LDA classifier trained on historical hydrological data.
+- **Rainfall Analysis** — Forecast monthly rainfall patterns for all Indian meteorological subdivisions using a 1D-CNN model trained on the IMD dataset (1901–2021).
+- **Live Flood Alerts** — A notice board that flags rivers currently at high flood risk based on 12-month ARIMA forecasts.
 
-1. Data Collection and Preprocessing:
-    Historical data on river discharge, flood runoff, daily runoff, and weekly runoff was gathered from various sources.
-    The data was preprocessed to handle missing values and ensure consistency.
+---
 
-2. Model Development:
-    Machine learning models for flood prediction were developed using ARIMA and classification algorithms.
+## Features
 
-3. Web Application Development:
-    A suitable web development framework like Flask was chosen.
-    User-friendly interfaces for data input, visualization, and result display were designed.
+- Query flood levels for historical dates (1998–2019) or forecast up to 12 months ahead
+- Analyze monthly rainfall for any IMD subdivision from 1901 to 2021
+- Live flood alert board with one-click refresh
+- Dark glassmorphic UI — responsive, modern, no page reloads
+- Chart output: ground truth vs. predicted monthly rainfall visualization
 
-4. Frontend Development:
-    Interactive frontend components were developed using HTML, CSS, and JavaScript.
+---
 
-5. Backend Implementation:
-    A backend server was set up to handle requests and interact with the machine learning models.
+## Tech Stack
 
-6. Testing and Validation:
-    Thorough testing of the application was conducted to validate model accuracy and functionality.
+| Layer       | Technology                                      |
+|-------------|--------------------------------------------------|
+| Backend     | Python 3, Flask                                  |
+| ML Models   | ARIMA (statsmodels), LDA (scikit-learn), 1D-CNN (Keras) |
+| Data        | pandas, NumPy, scikit-learn, imbalanced-learn    |
+| Frontend    | Jinja2 templates, Vanilla CSS (dark glassmorphic) |
+| Font        | Outfit (Google Fonts)                            |
+
+---
+
+## Project Structure
+
+```
+DSN2099/
+├── Code Base/                  # Main application
+│   ├── main.py                 # Flask app and routes
+│   ├── driver.py               # Flood prediction orchestrator
+│   ├── model.py                # LDA flood classifier
+│   ├── alerter.py              # Flood alert generator
+│   ├── discharge.py            # ARIMA discharge forecaster
+│   ├── flood_runoff.py         # ARIMA flood runoff forecaster
+│   ├── daily_runoff.py         # ARIMA daily runoff forecaster
+│   ├── weekly_runoff.py        # ARIMA weekly runoff forecaster
+│   ├── rainfall.py             # 1D-CNN rainfall predictor
+│   ├── requirements.txt        # Python dependencies
+│   ├── data/                   # Excel data files and forecast CSVs
+│   ├── trained/                # Pre-trained LDA .pkl model files
+│   ├── templates/              # Jinja2 HTML templates
+│   │   ├── base.html
+│   │   ├── index.html
+│   │   ├── flood_entry.html
+│   │   ├── flood_result.html
+│   │   ├── rain_entry.html
+│   │   ├── rain_result.html
+│   │   └── about.html
+│   └── static/
+│       ├── sahay.css           # Design system (dark glassmorphic)
+│       └── img/                # Flood image, rainfall chart output
+├── v0Archive/                  # Original exhibition v0 preserved
+├── User Interface/             # UI screenshots (v0)
+├── Project Report.pdf          # Original project report
+├── .env.example                # Environment variable template
+└── README.md
+```
+
+---
+
+## Local Setup
+
+1. **Create and activate a virtual environment:**
+
+   ```bash
+   python -m venv venv
+   venv\Scripts\activate    # Windows
+   source venv/bin/activate # macOS/Linux
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pip install -r "Code Base/requirements.txt"
+   ```
+
+3. **Set up environment variables:**
+
+   ```bash
+   copy .env.example .env     # Windows
+   cp .env.example .env       # macOS/Linux
+   ```
+
+   Edit `.env` and set a strong `SECRET_KEY`.
+
+4. **Run the application** (from inside `Code Base/`):
+
+   ```bash
+   cd "Code Base"
+   flask --app main run --debug
+   ```
+
+   The app will be available at `http://127.0.0.1:5000`.
+
+---
+
+## Notes
+
+- `.env` is gitignored — never commit your secret key.
+- `data/` and `trained/` contain the Excel datasets and pre-trained `.pkl` model files required at runtime.
+- The `v0Archive/` folder preserves the original exhibition submission exactly.
+- The rainfall chart is saved to `static/img/rainfall.png` on each analysis run.
+
+---
+
+## Team
+
+**Team-204** — Project Exhibition 2, Vellore Institute of Technology
+
+| Member             |
+|--------------------|
+| @Kavya              |
+| @Simarpreet Singh   |
+| @Sneha Mishra       |
+| @Pooja Prajapat     |
+| @Ashish Kumar       |

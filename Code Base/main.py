@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, redirect, url_for, flash
+from flask import Flask, render_template, request, flash, redirect, url_for
+import os
 import driver
 import rainfall
 import alerter
 
 app = Flask(__name__)
 
-app.secret_key = '5791628bb0b13ce0c676dfde280ba245'
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-please-change-in-production')
+
 
 @app.route('/')
 def index():
@@ -14,7 +16,7 @@ def index():
 
 @app.route('/refresh_flood')
 def refresh_flood():
-    alerter.water_level_predictor()  # To refresh the flood warning data
+    alerter.water_level_predictor()  # Refresh the flood warning data
     return redirect(url_for('flood_home'))
 
 
@@ -39,12 +41,15 @@ def rainfall_home():
 def flood_result():
     if request.method == 'POST':
         if len(request.form['DATE']) == 0:
-            flash("Please Enter Data!!")
+            flash("Please enter a date.")
             return redirect(url_for('flood_home'))
         else:
             user_date = request.form['DATE']
             river = request.form['SEL']
             results_dict = driver.drive(river, user_date)
+            if results_dict is None:
+                flash("No data found for the selected river and date. Please try a different combination.")
+                return redirect(url_for('flood_home'))
             table = list(results_dict.values())
             return render_template('flood_result.html', result=table)
     else:
@@ -55,12 +60,15 @@ def flood_result():
 def rainfall_result():
     if request.method == 'POST':
         if len(request.form['Year']) == 0:
-            flash("Please Enter Data!!")
+            flash("Please select a year.")
             return redirect(url_for('rainfall_home'))
         else:
             year = request.form['Year']
             region = request.form['SEL']
             mae, score = rainfall.rainfall(year, region)
+            if mae == "NIL":
+                flash(f"No rainfall data available for {region} in {year}.")
+                return redirect(url_for('rainfall_home'))
             return render_template('rain_result.html', Mae=mae, Score=score)
     else:
         return redirect(url_for('rainfall_home'))

@@ -4,7 +4,6 @@ from imblearn.over_sampling import SMOTE
 from sklearn.utils import shuffle
 from sklearn.metrics import mean_absolute_error
 import numpy as np
-from joblib import load
 import warnings
 
 warnings.filterwarnings("ignore")
@@ -64,8 +63,9 @@ def flood_classifier(filename, fd, validating=0):
 
     x_train, y_train = shuffle(X_train_res, Y_train_res, random_state=0)
 
-    path = 'trained/' + filename + '_LDA'
-    clf1 = load(path + '.pkl')
+    from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
+    clf1 = LinearDiscriminantAnalysis()
+    clf1.fit(x_train, y_train)
 
     y_predict3 = clf1.predict(x_test)
     mae = mean_absolute_error(y_test, y_predict3)

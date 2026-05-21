@@ -1,198 +1,71 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js" lang="en">
-<!--<![endif]-->
+{% extends 'base.html' %}
 
-<head>
-    <!--====== USEFULL META ======-->
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Transportation & Agency Template is a simple Smooth transportation and Agency Based Template" />
-    <meta name="keywords" content="Portfolio, Agency, Onepage, Html, Business, Blog, Parallax" />
+{% block title %}Sahay - Flood &amp; Rainfall Intelligence{% endblock %}
+{% block metaDescription %}Sahay provides ML-powered flood prediction and rainfall analysis for major Indian river systems and subdivisions. Enter a river and date to forecast water levels.{% endblock %}
 
-    <!--====== TITLE TAG ======-->
-    <title>Flood and Rainfall Prediction</title>
+{% block content %}
 
-    <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="{{ url_for('static',filename='img/favicon.png')}}" />
-
-    <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/normalize.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/animate.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/stellarnav.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/owl.carousel.css')}}">
-    <link href="{{ url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='css/font-awesome.min.css')}}" rel="stylesheet">
-
-    <!--====== MAIN STYLESHEETS ======-->
-    <link href="{{ url_for('static',filename='style.css')}}" rel="stylesheet">
-    <link href="{{ url_for('static',filename='css/responsive.css')}}" rel="stylesheet">
-
-    <script src="{{ url_for('static',filename='js/vendor/modernizr-2.8.3.min.js')}}"></script>
-    <!--[if lt IE 9]>
-        <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-        <![endif]-->
-</head>
-
-<body class="home-one">
-
-    <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-    <!--- PRELOADER -->
-    <div class="preeloader">
-        <div class="preloader-spinner"></div>
-    </div>
-
-    <!--SCROLL TO TOP-->
-    <a href="#home" class="scrolltotop"><i class="fa fa-long-arrow-up"></i></a>
-
-    <!--START TOP AREA-->
-    <header class="top-area" id="home">
-        <div class="top-area-bg" data-stellar-background-ratio="0.6"></div>
-        <div class="header-top-area">
-            <!--MAINMENU AREA-->
-            <div class="mainmenu-area" id="mainmenu-area">
-                <div class="mainmenu-area-bg"></div>
-                <nav class="navbar">
-                    <div class="container">
-                        
-                        <div id="main-nav" class="stellarnav ">
-                            <ul id="nav" class="nav navbar-nav">
-                                <li><a href="{{ url_for('index')}}">home</a></li>
-                                <li><a href="{{ url_for('about')}}">about</a> </li>
-                            </ul>
-                        </div>
-                    </div>
-                </nav>
-            </div>
-            <!--END MAINMENU AREA END-->
+<!-- Hero Section -->
+<section class="hero" id="heroSection">
+    <div class="hero-content">
+        <div class="hero-badge fade-in" id="heroBadge">
+            <span class="dot"></span>
+            ML-Powered Hydrological Intelligence
         </div>
-        <!--HOME SLIDER AREA-->
-        <div class="welcome-slider-area">
-            <div class="welcome-single-slide slider-bg-one">
-                <div class="container">
-                    <div class="row flex-v-center">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="welcome-text text-center">
-                                <h1>SAHAY</h1>
-                                <p>FLOOD FORECASTING REQUIRES ACCURATE ESTIMATES OF THE SPATIAL AND TEMPORAL RAINFALL RATES OVER A CATCHMENT.</p>
-                                <div class="home-button">
-                                    <a href="{{ url_for('flood_home')}}">FLOOD PREDICTION</a>
-                                    <a href="{{ url_for('rainfall_home')}}">RAINFALL ANALYSIS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="welcome-single-slide slider-bg-two">
-                <div class="container">
-                    <div class="row flex-v-center">
-                        <div class="col-md-10 col-md-offset-1">
-                            <div class="welcome-text text-center">
-                                <h1>SAHAY</h1>
-                                <p>FLOOD FORECASTING REQUIRES ACCURATE ESTIMATES OF THE SPATIAL AND TEMPORAL RAINFALL RATES OVER A CATCHMENT.</p>
-                                <div class="home-button">
-                                    <a href="{{ url_for('flood_home')}}">FLOOD PREDICTION</a>
-                                    <a href="{{ url_for('rainfall_home')}}">RAINFALL ANALYSIS</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--END HOME SLIDER AREA-->
-    </header>
-    <!--END TOP AREA-->
-
-    <!--BLOG AREA-->
-    <section class="blog-area gray-bg padding-top">
-        <div class="container">
-            <div class="row">
-                <p style="font-size: 18px;">In a world increasingly vulnerable to the impacts of climate change, floods and heavy rainfall pose significant threats to communities worldwide. From devastating property damage to loss of life, these natural disasters wreak havoc on infrastructure, agriculture, and livelihoods. Being aware of flood risks and understanding rainfall patterns is essential for proactive disaster preparedness and mitigation efforts. Our website offers invaluable tools for predicting floods and analyzing rainfall trends, empowering individuals, communities, and governments to make informed decisions to safeguard lives and property against the ravages of nature. Stay ahead of the storm, stay safe, and stay informed with our comprehensive flood prediction and rainfall analysis platform.</p>
-        </div>
-    </section>
-    <!--BLOG AREA END-->
-
-    <br>
-    <br>
-    <br>
-
-
-
-    <!--FOOTER AREA-->
-    <div class="footer-area dark-bg">
-        <div class="footer-area-bg"></div>
-        <div class="footer-top-area wow fadeIn">
-        </div>
-        <div class="footer-bottom-area wow fadeIn">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
-                        
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
-                        
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
-                        
-                    </div>
-                    <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
-                        
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="footer-border"> </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-copyright-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                        <div class="footer-copyright wow fadeIn">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            <!-- <p><script></script><i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank"></a></p> -->
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                        
-                    </div>
-                </div>
-            </div>
+        <h1 class="hero-title fade-in fade-in-delay-1" id="heroTitle">SAHAY</h1>
+        <p class="hero-subtitle fade-in fade-in-delay-1">Flood &amp; Rainfall Intelligence</p>
+        <p class="hero-description fade-in fade-in-delay-2">
+            Advanced flood forecasting and rainfall analysis using ARIMA time-series models
+            and machine learning classifiers trained on historical hydrological data from
+            major Indian river systems.
+        </p>
+        <div class="hero-actions fade-in fade-in-delay-3">
+            <a href="{{ url_for('flood_home') }}" class="btn btn-primary" id="heroFloodBtn">
+                🌊 Flood Prediction
+            </a>
+            <a href="{{ url_for('rainfall_home') }}" class="btn btn-primary-purple" id="heroRainfallBtn">
+                🌧 Rainfall Analysis
+            </a>
         </div>
     </div>
-    <!--FOOTER AREA END-->
+</section>
 
+<!-- Feature Cards -->
+<div class="features-grid" id="featuresGrid">
+    <article class="glass-card feature-card fade-in" id="featureFlood">
+        <div class="feature-icon feature-icon-blue">🌊</div>
+        <h2 class="feature-title">Flood Prediction</h2>
+        <p class="feature-description">
+            Predict river water levels for five major Indian rivers — Cauvery, Godavari,
+            Krishna, Mahanadi, and Son — using ARIMA forecasting and LDA classification.
+            Query historical dates or forecast up to 12 months ahead.
+        </p>
+        <a href="{{ url_for('flood_home') }}" class="btn btn-primary" id="featureFloodBtn">Get Prediction →</a>
+    </article>
 
-    <!--====== SCRIPTS JS ======-->
-    <script src="{{ url_for('static',filename='js/vendor/jquery-1.12.4.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/vendor/bootstrap.min.js')}}"></script>
+    <article class="glass-card feature-card fade-in fade-in-delay-1" id="featureRainfall">
+        <div class="feature-icon feature-icon-purple">🌧</div>
+        <h2 class="feature-title">Rainfall Analysis</h2>
+        <p class="feature-description">
+            Analyze and forecast monthly rainfall patterns across all Indian meteorological
+            subdivisions using a 1D-CNN model trained on IMD data spanning 1901–2021.
+            Visualize ground truth vs. predicted rainfall charts.
+        </p>
+        <a href="{{ url_for('rainfall_home') }}" class="btn btn-primary-purple" id="featureRainfallBtn">Run Analysis →</a>
+    </article>
+</div>
 
-    <!--====== PLUGINS JS ======-->
-    <script src="{{ url_for('static',filename='js/vendor/jquery.easing.1.3.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/vendor/jquery-migrate-1.2.1.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/vendor/jquery.appear.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/owl.carousel.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/stellar.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/wow.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/stellarnav.min.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/contact-form.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/jquery.sticky.js')}}"></script>
+<!-- Info Strip -->
+<div class="info-strip" id="infoStrip">
+    <div class="glass-card info-strip-card">
+        <p>
+            In a world increasingly vulnerable to climate change, floods and heavy rainfall pose
+            significant threats to communities across India. Our platform leverages historical
+            hydrological data and modern machine learning techniques to provide actionable flood
+            forecasts and rainfall insights — helping individuals, communities, and governments
+            make informed, proactive decisions to safeguard lives and infrastructure.
+        </p>
+    </div>
+</div>
 
-    <!--===== ACTIVE JS=====-->
-    <script src="{{ url_for('static',filename='js/main.js')}}"></script>
-</body>
-
-</html>
+{% endblock %}

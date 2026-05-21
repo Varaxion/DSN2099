@@ -3,6 +3,7 @@ from imblearn.over_sampling import SMOTE
 from sklearn.utils import shuffle
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 
+
 def alerting():
     data1 = pd.read_csv('data/forecast/forecasted_level_of_rivers.csv')
     res = []
@@ -12,6 +13,7 @@ def alerting():
                 res.append(data1.columns[i])
                 break
     return res
+
 
 def water_level_predictor():
     filename = ['Cauvery', 'Godavari', 'Krishna', 'Mahanadi', 'Son']
@@ -36,7 +38,8 @@ def water_level_predictor():
         x_test = data
 
         sm = SMOTE(random_state=2)
-        X_train_res, Y_train_res = sm.fit_sample(x_train, y_train)
+        # Fixed: replaced deprecated fit_sample with fit_resample
+        X_train_res, Y_train_res = sm.fit_resample(x_train, y_train)
 
         x_train, y_train = shuffle(X_train_res, Y_train_res, random_state=0)
 
