@@ -90,7 +90,17 @@
                 📊 Run Analysis
             </button>
         </form>
+        <div id="loadingIndicator" style="display:none; text-align:center; margin-top:20px;">
+            <p style="color: var(--primary);">⏳ Training CNN and calculating rainfall... Please wait.</p>
+        </div>
     </div>
 </div>
+
+<script>
+document.getElementById('rainfallForm').addEventListener('submit', function() {
+    document.getElementById('rainfallSubmitBtn').style.display = 'none';
+    document.getElementById('loadingIndicator').style.display = 'block';
+});
+</script>
 
 {% endblock %}

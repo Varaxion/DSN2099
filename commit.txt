@@ -1,7 +1,0 @@
-refactor(ml): massive deep structural and naming standardization
-
-- Standardized all datasets, forecasts, and models to strict lowercase snake_case to prevent cross-platform KeyError bugs.
-- DRY Refactor: Combined the 4 identical ARIMA prediction scripts (discharge, flood_runoff, daily_runoff, weekly_runoff) into a single unified 'timeseries_forecaster.py'.
-- Standardized HTML template names for better routing clarity (flood_form, rainfall_results, etc).
-- Renamed generic modules to standard names (main.py -> app.py, driver.py -> flood_pipeline.py, alerter.py -> flood_alerts.py).
-- Stripped all hardcoded string paths in favor of robust, dynamic 'os.path' combinations relative to BASE_DIR.

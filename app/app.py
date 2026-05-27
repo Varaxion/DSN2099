@@ -2,7 +2,6 @@ from flask import Flask, render_template, request, flash, redirect, url_for
 import os
 import flood_pipeline
 import rainfall
-import flood_alerts
 
 app = Flask(__name__)
 
@@ -14,22 +13,13 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/refresh_flood')
-def refresh_flood():
-    flood_alerts.water_level_predictor()  # Refresh the flood warning data
-    return redirect(url_for('flood_home'))
-
+@app.route('/flood_home')
+def flood_home():
+    return render_template('flood_form.html')
 
 @app.route('/about')
 def about():
     return render_template('about.html')
-
-
-@app.route('/flood_home')
-def flood_home():
-    res = flood_alerts.alerting()
-    res = ['Flood ALERT for ' + alert for alert in res]
-    return render_template('flood_form.html', result=res)
 
 
 @app.route('/rainfall_home')

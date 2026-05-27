@@ -48,47 +48,19 @@
                 🔍 Predict Water Level
             </button>
         </form>
-    </div>
-
-    <!-- Notice Board -->
-    <div class="glass-card notice-board fade-in fade-in-delay-1" id="noticeBoardCard">
-        <h2 class="notice-title">
-            <span class="notice-dot"></span>
-            Live Flood Alerts
-        </h2>
-
-        {% if result %}
-            {% set hasAlerts = namespace(value=false) %}
-            {% for alert in result %}
-                {% if alert %}{% set hasAlerts.value = true %}{% endif %}
-            {% endfor %}
-
-            {% if hasAlerts.value %}
-            <ul class="alert-list" id="alertList">
-                {% for alert in result %}
-                    {% if alert %}
-                    <li class="alert-item">{{ alert }}</li>
-                    {% endif %}
-                {% endfor %}
-            </ul>
-            {% else %}
-            <div class="no-alerts" id="noAlerts">
-                <div class="no-alerts-icon">✓</div>
-                <p>No active flood alerts at this time.</p>
-            </div>
-            {% endif %}
-        {% else %}
-        <div class="no-alerts" id="noAlerts">
-            <div class="no-alerts-icon">✓</div>
-            <p>No active flood alerts at this time.</p>
+        </form>
+        <div id="loadingIndicator" style="display:none; text-align:center; margin-top:20px;">
+            <p style="color: var(--primary);">⏳ Calculating water level... Please wait.</p>
         </div>
-        {% endif %}
-
-        <a href="{{ url_for('refresh_flood') }}" class="btn btn-secondary" id="refreshBtn"
-           style="width:100%; justify-content:center; margin-top:16px;">
-            🔄 Refresh Alert Data
-        </a>
     </div>
+</div>
+
+<script>
+document.getElementById('floodForm').addEventListener('submit', function() {
+    document.getElementById('floodSubmitBtn').style.display = 'none';
+    document.getElementById('loadingIndicator').style.display = 'block';
+});
+</script>
 
 </div>
 

@@ -19,8 +19,14 @@
 
 <div class="result-layout" id="resultLayout">
 
+    <!-- Flood Image -->
+    <div class="glass-card chart-card fade-in" id="floodImageCard">
+        <img src="{{ url_for('static', filename='img/flood.png') }}"
+             alt="Flood visualization" loading="lazy">
+    </div>
+
     <!-- Metrics Card -->
-    <div class="glass-card result-card fade-in" id="resultCard">
+    <div class="glass-card result-card fade-in fade-in-delay-1" id="resultCard">
         <h2 class="form-title" style="margin-bottom: 24px;">Hydrological Metrics</h2>
 
         <table class="result-table">
@@ -79,12 +85,6 @@
         <div style="margin-top: 28px;">
             <a href="{{ url_for('flood_home') }}" class="btn btn-secondary" id="floodResultBackBtn">← Back</a>
         </div>
-    </div>
-
-    <!-- Flood Image -->
-    <div class="glass-card chart-card fade-in fade-in-delay-1" id="floodImageCard">
-        <img src="{{ url_for('static', filename='img/flood.png') }}"
-             alt="Flood visualization" loading="lazy">
     </div>
 
 </div>

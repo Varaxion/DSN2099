@@ -647,8 +647,8 @@ main {
 
 /* ── Result Layout ───────────────────────────────────────────── */
 .result-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 28px;
   max-width: 1100px;
   margin: 0 auto;

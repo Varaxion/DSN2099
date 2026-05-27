@@ -19,8 +19,14 @@
 
 <div class="result-layout" id="rainfallResultLayout">
 
+    <!-- Chart -->
+    <div class="glass-card chart-card fade-in" id="rainfallChartCard">
+        <img src="{{ url_for('static', filename='img/rainfall.png') }}"
+             alt="Monthly rainfall ground truth vs prediction chart" loading="lazy">
+    </div>
+
     <!-- Metrics Card -->
-    <div class="glass-card result-card fade-in" id="rainfallResultCard">
+    <div class="glass-card result-card fade-in fade-in-delay-1" id="rainfallResultCard">
         <h2 class="form-title" style="margin-bottom: 24px;">Model Performance</h2>
 
         <table class="result-table">
@@ -36,20 +42,9 @@
             </tbody>
         </table>
 
-        <p style="font-size: 13px; color: var(--text-muted); margin-top: 20px; line-height: 1.6;">
-            The chart on the right shows ground truth vs. predicted rainfall (Apr–Dec)
-            for the selected subdivision and year.
-        </p>
-
         <div style="margin-top: 28px;">
             <a href="{{ url_for('rainfall_home') }}" class="btn btn-secondary" id="rainfallResultBackBtn">← Back</a>
         </div>
-    </div>
-
-    <!-- Chart -->
-    <div class="glass-card chart-card fade-in fade-in-delay-1" id="rainfallChartCard">
-        <img src="{{ url_for('static', filename='img/rainfall.png') }}"
-             alt="Monthly rainfall ground truth vs prediction chart" loading="lazy">
     </div>
 
 </div>
