@@ -769,15 +769,57 @@ main {
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.tech-item {
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-md);
+  transition: var(--transition);
+}
+
+.tech-item:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow);
+}
+
+.tech-icon-wrapper {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--gradient-subtle);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+  color: #93c5fd;
+  transition: var(--transition);
+}
+
+.tech-item:hover .tech-icon-wrapper {
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.4);
+  background: rgba(59, 130, 246, 0.15);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+}
+
+.tech-icon {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
 }
 
 .tech-item h3 {
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: #93c5fd;
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .tech-item p {
@@ -845,6 +887,14 @@ main {
   font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.member-reg {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 4px;
+  letter-spacing: 0.3px;
 }
 
 /* ── Footer ──────────────────────────────────────────────────── */
