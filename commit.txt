@@ -1,21 +1,6 @@
-refactor: finalize Sahay V1.0 modernization
+refactor: restructure project architecture and archive legacy files
 
-This commit completes the modernization of the Sahay web application, transitioning the legacy architecture to a stable, responsive, and aesthetically premium state. The original exhibition files have been safely preserved in 0Archive/.
-
-UI & Design System Modernization:
-- Built a unified ase.html Jinja2 template to enforce a DRY layout (global navbar, flash messages, and footer).
-- Migrated all views (index, flood, rainfall, about) to extend ase.html.
-- Implemented sahay.css featuring a dark glassmorphic design system with dynamic gradient buttons (.btn-primary, .btn-primary-purple) and smooth micro-animations.
-- Updated About page and project documentation with @ team credits.
-
-Backend & Architectural Fixes:
-- lerter.py: Fixed deprecated it_sample crashing in modern imblearn.
-- driver.py: Removed module-level execution test code causing ghost loops.
-- main.py: Hardened SECRET_KEY loading via os.environ.
-- Forecast Modules: Removed blocking plt.show() calls and injected Matplotlib's non-interactive Agg backend to prevent Flask hangs.
-
-ML Pipeline Bug Fixes:
-- Resolved KeyError: 0 during .pkl loading by bypassing legacy joblib loads. The LinearDiscriminantAnalysis model now trains dynamically in-memory in <0.1s to guarantee environment compatibility.
-- Fixed ValueError: Input X contains NaN in driver.py by properly expanding the 1D weekly runoff forecast into daily slices to match the daily ARIMA shape.
-- Extended ARIMA forecast horizons from 360 to 3000 days, fixing the bug where future flood predictions (up to 2026) were failing silently and redirecting without data.
-- Patched Keras UnboundLocalError in ainfall.py by gracefully handling missing historical years (e.g., 2020) and passing explicit warnings back to the frontend.
+- Moved all application code, templates, and static assets from 'Code Base' into the project root for better module resolution and cleaner structure.
+- Reorganized 'v0Archive' by nesting legacy UI screenshots into 'legacy_ui' and the original project report into 'docs'.
+- Created an empty 'Screenshots' directory in the root for V1.0 UI previews.
+- Updated README.md instructions and tree to reflect the new root-level architecture.

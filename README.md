@@ -43,7 +43,7 @@ Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 1. **Clone and enter the directory:**
    ```bash
    git clone <repository-url>
-   cd DSN2099/Code\ Base
+   cd DSN2099
    ```
 
 2. **Create a virtual environment:**
@@ -62,7 +62,7 @@ Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 
 4. **Environment Variables:**
    ```bash
-   cp ../.env.example .env
+   cp .env.example .env
    ```
    *Make sure to edit `.env` and set a strong `SECRET_KEY`.*
 
@@ -78,16 +78,17 @@ Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 
 ```text
 DSN2099/
-├── Code Base/                  # Modernized V1.0 application
-│   ├── main.py                 # Flask app & routing
-│   ├── driver.py               # Flood ML orchestrator (ARIMA + LDA)
-│   ├── rainfall.py             # 1D-CNN rainfall predictor
-│   ├── data/                   # Excel datasets & forecast CSVs
-│   ├── static/sahay.css        # Glassmorphic design system
-│   └── templates/              # Jinja2 views (base.html, index.html, etc.)
-├── Screenshots/                # App previews
-├── v0Archive/                  # Preserved original exhibition submission (Legacy)
-└── README.md                   # Project documentation
+├── main.py                 # Flask app & routing
+├── driver.py               # Flood ML orchestrator (ARIMA + LDA)
+├── rainfall.py             # 1D-CNN rainfall predictor
+├── data/                   # Excel datasets & forecast CSVs
+├── static/sahay.css        # Glassmorphic design system
+├── templates/              # Jinja2 views (base.html, index.html, etc.)
+├── Screenshots/            # App previews
+├── v0Archive/              # Preserved original exhibition submission (Legacy)
+│   ├── legacy_ui/          # Original UI screenshots
+│   └── docs/               # Original project reports
+└── README.md               # Project documentation
 ```
 
 ---
