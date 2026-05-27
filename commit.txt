@@ -1,6 +1,0 @@
-refactor: restructure project architecture and archive legacy files
-
-- Moved all application code, templates, and static assets from 'Code Base' into the project root for better module resolution and cleaner structure.
-- Reorganized 'v0Archive' by nesting legacy UI screenshots into 'legacy_ui' and the original project report into 'docs'.
-- Created an empty 'Screenshots' directory in the root for V1.0 UI previews.
-- Updated README.md instructions and tree to reflect the new root-level architecture.
