@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from sklearn.preprocessing import MinMaxScaler
 from imblearn.over_sampling import SMOTE
@@ -8,9 +9,11 @@ import warnings
 
 warnings.filterwarnings("ignore")
 
-def flood_classifier(filename, fd, validating=0):
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
-    data1 = pd.read_excel('data/' + filename + '.xlsx')
+def flood_classifier(filename, fd, validating=0):
+    data_path = os.path.join(BASE_DIR, 'data', f'{filename.lower()}.xlsx')
+    data1 = pd.read_excel(data_path)
 
     for i in range(1, len(data1.columns)):
         data1[data1.columns[i]] = data1[data1.columns[i]].fillna(data1[data1.columns[i]].mean())

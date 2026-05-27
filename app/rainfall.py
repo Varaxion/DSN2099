@@ -1,14 +1,17 @@
+import os
 import numpy as np
 import pandas as pd
 import matplotlib
-matplotlib.use('Agg')  # Non-interactive backend — prevents plt.show() blocking
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import keras
 from sklearn.metrics import mean_absolute_error, explained_variance_score
 
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def rainfall(year, region):
-    data = pd.read_csv(r'data\Sub_Division_IMD_2021.csv')
+    data_path = os.path.join(BASE_DIR, 'data', 'imd_rainfall_2021.csv')
+    data = pd.read_csv(data_path)
 
     if data.isna().sum().sum() > 0:
         data.dropna(inplace=True)
@@ -42,7 +45,8 @@ def rainfall(year, region):
             ax.text(rect.get_x() + rect.get_width() / 2., 1.05 * h,
                     '%d' % int(h), ha='center', va='bottom', color='#94a3b8')
 
-        plt.savefig('static/img/rainfall.png', facecolor=fig.get_facecolor())
+        img_path = os.path.join(BASE_DIR, 'static', 'img', 'rainfall.png')
+        plt.savefig(img_path, facecolor=fig.get_facecolor())
         plt.close(fig)
 
     def dataGeneration(year, region):
@@ -79,7 +83,6 @@ def rainfall(year, region):
         from keras.models import Model
         from keras.layers import Dense, Input, Conv1D, Flatten
 
-        # 1D-CNN model
         inputs = Input(shape=(3, 1))
         x = Conv1D(64, 2, padding='same', activation='elu')(inputs)
         x = Conv1D(128, 2, padding='same', activation='elu')(x)
@@ -114,7 +117,6 @@ def rainfall(year, region):
     if mae == "NIL":
         return "NIL", "NIL"
 
-    # Format metrics gracefully
     mae   = format(round(float(mae), 2))
     score = format(round(float(score), 2))
     keras.backend.clear_session()
