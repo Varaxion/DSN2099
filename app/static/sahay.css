@@ -386,40 +386,70 @@ main {
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
+  gap: 10px;
   padding: 14px 28px;
   border-radius: var(--radius-md);
   font-family: 'Outfit', sans-serif;
   font-size: 15px;
   font-weight: 600;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.5px;
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition);
-  border: none;
+  border: 1px solid transparent;
   outline: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: currentColor;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+.btn:hover {
+  transform: translateY(-3px) scale(1.02);
 }
 
 .btn-primary {
   background: var(--gradient);
   color: white;
-  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 12px 40px rgba(59, 130, 246, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary svg {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.btn-primary:hover svg {
+  transform: translateX(4px);
 }
 
 .btn-primary-purple {
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
   color: white;
-  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(139, 92, 246, 0.3);
 }
 
 .btn-primary-purple:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 32px rgba(139, 92, 246, 0.5);
+  box-shadow: 0 12px 40px rgba(139, 92, 246, 0.5);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary-purple:hover svg {
+  transform: translateX(4px);
 }
 
 .btn-secondary {
@@ -427,12 +457,17 @@ main {
   color: var(--text-primary);
   border: 1px solid var(--glass-border);
   backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .btn-secondary:hover {
   background: var(--glass-bg-hover);
   border-color: var(--glass-border-hover);
-  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.btn-secondary:hover svg {
+  transform: translateX(-4px);
 }
 
 /* ── Feature Cards (Index) ───────────────────────────────────── */
@@ -499,10 +534,7 @@ main {
 
 /* ── Form Layout ─────────────────────────────────────────────── */
 .form-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  max-width: 1100px;
+  max-width: 600px;
   margin: 0 auto;
   padding: 0 24px 80px;
 }
@@ -899,7 +931,6 @@ main {
 
 /* ── Responsive ──────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .form-layout  { grid-template-columns: 1fr; }
   .result-layout { grid-template-columns: 1fr; }
   .footer-container { grid-template-columns: 1fr; gap: 28px; }
 }

@@ -19,34 +19,41 @@ def rainfall(year, region):
     def plotGraphs(groundTruth, prediction, title):
         N = 9
         ind = np.arange(N)
-        width = 0.27
+        width = 0.35
 
-        fig = plt.figure(figsize=(18, 10))
-        fig.suptitle(title, fontsize=12)
+        fig = plt.figure(figsize=(12, 7))
+        fig.suptitle(title, fontsize=18, color='#f1f5f9', fontweight='bold', y=0.96)
         ax = fig.add_subplot(111)
-        rects1 = ax.bar(ind, groundTruth, width, color='#3b82f6')
-        rects2 = ax.bar(ind + width, prediction, width, color='#8b5cf6')
+        rects1 = ax.bar(ind, groundTruth, width, color='#3b82f6', label='Ground Truth')
+        rects2 = ax.bar(ind + width, prediction, width, color='#a78bfa', label='Prediction')
 
-        ax.set_ylabel("Amount of rainfall")
-        ax.set_xticks(ind + width)
-        ax.set_xticklabels(('APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'))
-        ax.legend((rects1[0], rects2[0]), ('Ground truth', 'Prediction'))
+        ax.set_ylabel("Amount of rainfall (mm)", fontsize=14, color='#f1f5f9', fontweight='bold', labelpad=15)
+        ax.set_xticks(ind + width / 2)
+        ax.set_xticklabels(('APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'), fontsize=12, color='#f1f5f9')
+        
+        leg = ax.legend(fontsize=13, facecolor='#0d1424', edgecolor='none')
+        for text in leg.get_texts():
+            text.set_color('#f1f5f9')
+
         ax.set_facecolor('#0d1424')
         fig.patch.set_facecolor('#0a0e1a')
-        ax.tick_params(colors='#94a3b8')
-        ax.yaxis.label.set_color('#94a3b8')
+        ax.tick_params(colors='#f1f5f9', labelsize=12)
+        
+        ax.grid(True, linestyle='--', alpha=0.15, color='#94a3b8')
 
         for rect in rects1:
             h = rect.get_height()
-            ax.text(rect.get_x() + rect.get_width() / 2., 1.05 * h,
-                    '%d' % int(h), ha='center', va='bottom', color='#94a3b8')
+            ax.text(rect.get_x() + rect.get_width() / 2., h + 3,
+                    '%d' % int(h), ha='center', va='bottom', color='#60a5fa', fontsize=11, fontweight='semibold')
         for rect in rects2:
             h = rect.get_height()
-            ax.text(rect.get_x() + rect.get_width() / 2., 1.05 * h,
-                    '%d' % int(h), ha='center', va='bottom', color='#94a3b8')
+            ax.text(rect.get_x() + rect.get_width() / 2., h + 3,
+                    '%d' % int(h), ha='center', va='bottom', color='#c084fc', fontsize=11, fontweight='semibold')
+
+        ax.set_ylim(0, max(max(groundTruth), max(prediction)) * 1.15)
 
         img_path = os.path.join(BASE_DIR, 'static', 'img', 'rainfall.png')
-        plt.savefig(img_path, facecolor=fig.get_facecolor())
+        plt.savefig(img_path, facecolor=fig.get_facecolor(), bbox_inches='tight', dpi=120)
         plt.close(fig)
 
     def dataGeneration(year, region):
@@ -80,28 +87,54 @@ def rainfall(year, region):
         return X, y
 
     def prediction2(year, region):
-        from keras.models import Model
-        from keras.layers import Dense, Input, Conv1D, Flatten
-
-        inputs = Input(shape=(3, 1))
-        x = Conv1D(64, 2, padding='same', activation='elu')(inputs)
-        x = Conv1D(128, 2, padding='same', activation='elu')(x)
-        x = Flatten()(x)
-        x = Dense(128, activation='elu')(x)
-        x = Dense(64, activation='elu')(x)
-        x = Dense(32, activation='elu')(x)
-        x = Dense(1, activation='linear')(x)
-        model = Model(inputs=[inputs], outputs=[x])
-        model.compile(loss='mean_squared_error', optimizer='adamax', metrics=['mae'])
+        region_slug = region.lower().replace(' ', '_').replace('&', 'and').replace('/', '_').replace('(', '').replace(')', '').replace('__', '_')
+        model_dir = os.path.join(BASE_DIR, 'trained')
+        model_path = os.path.join(model_dir, f'rainfall_cnn_{region_slug}.h5')
 
         xTesting, yTesting = dataGeneration(year, region)
         if xTesting is None or len(xTesting) == 0:
             return "NIL", "NIL"
 
-        xTrain, yTrain = dataGeneration2(region)
-        model.fit(x=np.expand_dims(xTrain, axis=2), y=yTrain,
-                  batch_size=64, epochs=20, verbose=1,
-                  validation_split=0.1, shuffle=True)
+        # Check model cache
+        model_loaded = False
+        if os.path.exists(model_path):
+            try:
+                print(f"Loading pre-trained CNN model for {region}...")
+                from keras.models import load_model
+                model = load_model(model_path)
+                model_loaded = True
+            except Exception as e:
+                print(f"Error loading cached model: {e}. Re-training model...")
+
+        if not model_loaded:
+            print(f"Training CNN model from scratch for {region}...")
+            from keras.models import Model
+            from keras.layers import Dense, Input, Conv1D, Flatten, Dropout
+
+            inputs = Input(shape=(3, 1))
+            x = Conv1D(64, 2, padding='same', activation='relu')(inputs)
+            x = Conv1D(128, 2, padding='same', activation='relu')(x)
+            x = Flatten()(x)
+            x = Dense(128, activation='relu')(x)
+            x = Dropout(0.2)(x)
+            x = Dense(64, activation='relu')(x)
+            x = Dense(32, activation='relu')(x)
+            x = Dense(1, activation='linear')(x)
+            
+            model = Model(inputs=[inputs], outputs=[x])
+            model.compile(loss='mean_squared_error', optimizer='adamax', metrics=['mae'])
+
+            xTrain, yTrain = dataGeneration2(region)
+            model.fit(x=np.expand_dims(xTrain, axis=2), y=yTrain,
+                      batch_size=64, epochs=20, verbose=1,
+                      validation_split=0.1, shuffle=True)
+
+            try:
+                os.makedirs(model_dir, exist_ok=True)
+                model.save(model_path)
+                print(f"Saved CNN model to {model_path}")
+            except Exception as e:
+                print(f"Failed to save trained model: {e}")
 
         yPred = model.predict(np.expand_dims(xTesting, axis=2))
         mae   = mean_absolute_error(yTesting, yPred)
