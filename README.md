@@ -1,131 +1,107 @@
-# Sahay - Flood & Rainfall Intelligence
+# 🌊 Sahay - Flood & Rainfall Intelligence
 
-> ML-powered flood prediction and rainfall analysis for Indian river systems and meteorological subdivisions.
+> **Hydrological intelligence, forecasting, and automated alerting for Indian river systems.**
 
----
+**Sahay** (सहाय — *aid* in Sanskrit) is a modern, end-to-end Machine Learning web application built to predict flood risks and analyze rainfall patterns across India. It leverages time-series forecasting and deep learning to deliver critical insights through a beautiful, glassmorphic UI.
 
-## Overview
-
-**Sahay** (सहाय — *aid* in Sanskrit) is a Flask web application for hydrological intelligence, built during Project Exhibition 2. It provides:
-
-- **Flood Prediction** — Predict water level classification (Normal / High) for five major Indian rivers using ARIMA time-series forecasting and an LDA classifier trained on historical hydrological data.
-- **Rainfall Analysis** — Forecast monthly rainfall patterns for all Indian meteorological subdivisions using a 1D-CNN model trained on the IMD dataset (1901–2021).
-- **Live Flood Alerts** — A notice board that flags rivers currently at high flood risk based on 12-month ARIMA forecasts.
+Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 
 ---
 
-## Features
+## ✨ Features
 
-- Query flood levels for historical dates (1998–2019) or forecast up to 12 months ahead
-- Analyze monthly rainfall for any IMD subdivision from 1901 to 2021
-- Live flood alert board with one-click refresh
-- Dark glassmorphic UI — responsive, modern, no page reloads
-- Chart output: ground truth vs. predicted monthly rainfall visualization
-
----
-
-## Tech Stack
-
-| Layer       | Technology                                      |
-|-------------|--------------------------------------------------|
-| Backend     | Python 3, Flask                                  |
-| ML Models   | ARIMA (statsmodels), LDA (scikit-learn), 1D-CNN (Keras) |
-| Data        | pandas, NumPy, scikit-learn, imbalanced-learn    |
-| Frontend    | Jinja2 templates, Vanilla CSS (dark glassmorphic) |
-| Font        | Outfit (Google Fonts)                            |
+- **🌊 Flood Prediction Pipeline**
+  - Analyzes historical hydrological data (1998–2019) across five major Indian rivers (Cauvery, Godavari, Krishna, Mahanadi, Narmada).
+  - Uses **ARIMA** (AutoRegressive Integrated Moving Average) to forecast future discharge, flood runoff, daily runoff, and weekly runoff up to 3000 days ahead.
+  - Classifies the flood risk (Normal / High) using a dynamically trained **Linear Discriminant Analysis (LDA)** model.
+- **🌧️ Rainfall Analysis & Forecasting**
+  - Forecasts monthly rainfall patterns across all Indian meteorological subdivisions.
+  - Utilizes a **1D-CNN (Convolutional Neural Network)** trained on over a century of IMD data (1901–2021).
+  - Generates instant, dynamic visualization charts comparing ground truth against predicted rainfall.
+- **🚨 Live Alert Board**
+  - A real-time notice board flagging rivers currently at high flood risk, automatically scanning 12-month ARIMA forecasts with a single click.
+- **💎 Premium UI/UX**
+  - Features a completely bespoke dark glassmorphic design system (`sahay.css`).
+  - Fully responsive layout with smooth micro-animations, gradient buttons, and zero page-reloads for core interactions.
 
 ---
 
-## Project Structure
+## 🛠️ Tech Stack
 
-```
-DSN2099/
-├── Code Base/                  # Main application
-│   ├── main.py                 # Flask app and routes
-│   ├── driver.py               # Flood prediction orchestrator
-│   ├── model.py                # LDA flood classifier
-│   ├── alerter.py              # Flood alert generator
-│   ├── discharge.py            # ARIMA discharge forecaster
-│   ├── flood_runoff.py         # ARIMA flood runoff forecaster
-│   ├── daily_runoff.py         # ARIMA daily runoff forecaster
-│   ├── weekly_runoff.py        # ARIMA weekly runoff forecaster
-│   ├── rainfall.py             # 1D-CNN rainfall predictor
-│   ├── requirements.txt        # Python dependencies
-│   ├── data/                   # Excel data files and forecast CSVs
-│   ├── trained/                # Pre-trained LDA .pkl model files
-│   ├── templates/              # Jinja2 HTML templates
-│   │   ├── base.html
-│   │   ├── index.html
-│   │   ├── flood_entry.html
-│   │   ├── flood_result.html
-│   │   ├── rain_entry.html
-│   │   ├── rain_result.html
-│   │   └── about.html
-│   └── static/
-│       ├── sahay.css           # Design system (dark glassmorphic)
-│       └── img/                # Flood image, rainfall chart output
-├── v0Archive/                  # Original exhibition v0 preserved
-├── User Interface/             # UI screenshots (v0)
-├── Project Report.pdf          # Original project report
-├── .env.example                # Environment variable template
-└── README.md
-```
+| Component | Technologies Used |
+| :--- | :--- |
+| **Frontend** | HTML5, Jinja2, Vanilla CSS (Glassmorphism), Google Fonts (Outfit) |
+| **Backend** | Python 3, Flask, Werkzeug |
+| **Machine Learning** | scikit-learn (LDA), Keras/TensorFlow (1D-CNN), statsmodels (ARIMA) |
+| **Data Processing** | Pandas, NumPy, imbalanced-learn (SMOTE) |
+| **Visualization** | Matplotlib (Agg backend) |
 
 ---
 
-## Local Setup
+## 🚀 Local Installation
 
-1. **Create and activate a virtual environment:**
+1. **Clone and enter the directory:**
+   ```bash
+   git clone <repository-url>
+   cd DSN2099/Code\ Base
+   ```
 
+2. **Create a virtual environment:**
    ```bash
    python -m venv venv
-   venv\Scripts\activate    # Windows
-   source venv/bin/activate # macOS/Linux
+   # On Windows:
+   venv\Scripts\activate
+   # On macOS/Linux:
+   source venv/bin/activate
    ```
 
-2. **Install dependencies:**
-
+3. **Install dependencies:**
    ```bash
-   pip install -r "Code Base/requirements.txt"
+   pip install -r requirements.txt
    ```
 
-3. **Set up environment variables:**
-
+4. **Environment Variables:**
    ```bash
-   copy .env.example .env     # Windows
-   cp .env.example .env       # macOS/Linux
+   cp ../.env.example .env
    ```
+   *Make sure to edit `.env` and set a strong `SECRET_KEY`.*
 
-   Edit `.env` and set a strong `SECRET_KEY`.
-
-4. **Run the application** (from inside `Code Base/`):
-
+5. **Run the server:**
    ```bash
-   cd "Code Base"
    flask --app main run --debug
    ```
-
-   The app will be available at `http://127.0.0.1:5000`.
-
----
-
-## Notes
-
-- `.env` is gitignored — never commit your secret key.
-- `data/` and `trained/` contain the Excel datasets and pre-trained `.pkl` model files required at runtime.
-- The `v0Archive/` folder preserves the original exhibition submission exactly.
-- The rainfall chart is saved to `static/img/rainfall.png` on each analysis run.
+   Navigate to `http://127.0.0.1:5000` in your browser.
 
 ---
 
-## Team
+## 📂 Project Structure
+
+```text
+DSN2099/
+├── Code Base/                  # Modernized V1.0 application
+│   ├── main.py                 # Flask app & routing
+│   ├── driver.py               # Flood ML orchestrator (ARIMA + LDA)
+│   ├── rainfall.py             # 1D-CNN rainfall predictor
+│   ├── data/                   # Excel datasets & forecast CSVs
+│   ├── static/sahay.css        # Glassmorphic design system
+│   └── templates/              # Jinja2 views (base.html, index.html, etc.)
+├── Screenshots/                # App previews
+├── v0Archive/                  # Preserved original exhibition submission (Legacy)
+└── README.md                   # Project documentation
+```
+
+---
+
+## 🤝 Team & Contributions
 
 **Team-204** — Project Exhibition 2, Vellore Institute of Technology
 
-| Member             |
-|--------------------|
-| @Kavya              |
-| @Simarpreet Singh   |
-| @Sneha Mishra       |
-| @Pooja Prajapat     |
-| @Ashish Kumar       |
+| Member |
+| :--- |
+| @Kavya |
+| @Simarpreet Singh |
+| @Sneha Mishra |
+| @Pooja Prajapat |
+| @Ashish Kumar |
+
+**V1.0 Overhaul:** While the initial conceptual prototype and data collection were developed collectively by Team-204, the complete architectural redesign, robust ML pipeline fixes, and the premium modern Glassmorphic V1.0 frontend were entirely engineered by Kavya (@varaxion).

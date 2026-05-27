@@ -49,7 +49,7 @@ def drive(filename, userDate):
             data['Date'] = pd.to_datetime(data['Date'])
 
             def existingPrediction(i):
-                fd = data.iloc[i, 1:].tolist()  # All columns except 'Date'
+                fd = data.iloc[i, 1:5].tolist()  # Exclude 'Date' and 'Flood'
 
                 result, mae = model.flood_classifier(filename, fd)
 

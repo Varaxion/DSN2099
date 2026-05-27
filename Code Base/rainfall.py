@@ -110,6 +110,11 @@ def rainfall(year, region):
         return mae, score
 
     mae, score = prediction2(int(year), region)
+
+    if mae == "NIL":
+        return "NIL", "NIL"
+
+    # Format metrics gracefully
     mae   = format(round(float(mae), 2))
     score = format(round(float(score), 2))
     keras.backend.clear_session()
