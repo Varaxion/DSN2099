@@ -1,0 +1,5 @@
+refactor(repo): encapsulate logic in app directory and wipe static bloat
+
+- Deleted legacy unused CSS, JS, fonts, and template images from static/ to dramatically reduce payload and bloat.
+- Moved the entire core application (Flask models, routes, data, templates, static) into a new app/ directory.
+- Updated README.md to reflect the new pristine root structure.

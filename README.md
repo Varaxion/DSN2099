@@ -68,6 +68,7 @@ Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 
 5. **Run the server:**
    ```bash
+   cd app
    flask --app main run --debug
    ```
    Navigate to `http://127.0.0.1:5000` in your browser.
@@ -78,15 +79,17 @@ Developed for **Project Exhibition 2** at Vellore Institute of Technology.
 
 ```text
 DSN2099/
-├── main.py                 # Flask app & routing
-├── driver.py               # Flood ML orchestrator (ARIMA + LDA)
-├── rainfall.py             # 1D-CNN rainfall predictor
-├── data/                   # Excel datasets & forecast CSVs
-├── static/sahay.css        # Glassmorphic design system
-├── templates/              # Jinja2 views (base.html, index.html, etc.)
+├── app/                    # Core Application Logic
+│   ├── main.py             # Flask app & routing
+│   ├── driver.py           # Flood ML orchestrator (ARIMA + LDA)
+│   ├── rainfall.py         # 1D-CNN rainfall predictor
+│   ├── data/               # Excel datasets & forecast CSVs
+│   ├── trained/            # Pre-trained ML models
+│   ├── static/sahay.css    # Glassmorphic design system
+│   └── templates/          # Jinja2 views (base.html, index.html, etc.)
 ├── Screenshots/            # App previews
 ├── v0Archive/              # Preserved original exhibition submission (Legacy)
-│   ├── legacy_ui/          # Original UI screenshots
+│   ├── legacyUI/           # Original UI screenshots
 │   └── docs/               # Original project reports
 └── README.md               # Project documentation
 ```
