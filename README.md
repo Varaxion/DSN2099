@@ -26,7 +26,7 @@
 See the application in real-time! The screen recording below demonstrates the seamless, dark-mode animations, interactive inputs, dynamic graphs, and premium glassmorphic loaders.
 
 <div align="center">
-  <video src="Screenshots/sahay.webm" width="100%" controls autoplay loop muted></video>
+  <video src="screenshots/sahay.webm" width="100%" controls autoplay loop muted></video>
 </div>
 
 ---
@@ -37,18 +37,18 @@ See the application in real-time! The screen recording below demonstrates the se
 Below is the core presentation of Sahay's landing experience and responsive modular interface.
 
 <div align="center">
-  <img src="Screenshots/1-home.png" alt="Sahay Home Hero" width="48%">
-  <img src="Screenshots/2-home.png" alt="Sahay Core Feature Modules" width="48%">
+  <img src="screenshots/1-home.png" alt="Sahay Home Hero" width="48%">
+  <img src="screenshots/2-home.png" alt="Sahay Core Feature Modules" width="48%">
 </div>
 
 ### 🔮 Predictive Outputs & Technical Overview
 Below is the dynamic results presentation alongside the technical details panel.
 
 <div align="center">
-  <img src="Screenshots/6-flood-output-graph.png" alt="Dynamic Flood Forecast Line Chart" width="48%">
-  <img src="Screenshots/10-rain-output-graph.png" alt="1D-CNN Rainfall Comparison Bar Chart" width="48%">
+  <img src="screenshots/6-flood-output-graph.png" alt="Dynamic Flood Forecast Line Chart" width="48%">
+  <img src="screenshots/10-rain-output-graph.png" alt="1D-CNN Rainfall Comparison Bar Chart" width="48%">
   <br/><br/>
-  <img src="Screenshots/12-about.png" alt="Sahay Technical Approach Cards" width="98%">
+  <img src="screenshots/12-about.png" alt="Sahay Technical Approach Cards" width="98%">
 </div>
 
 <br/>
@@ -58,26 +58,26 @@ Below is the dynamic results presentation alongside the technical details panel.
 <br/>
 
 #### 1. Landing & Navigation Scroll
-<img src="Screenshots/3-home.png" alt="Scrolled Features view" width="100%">
+<img src="screenshots/3-home.png" alt="Scrolled Features view" width="100%">
 
 #### 2. 🌊 Flood Prediction Pipeline
 <div align="center">
-  <img src="Screenshots/4-flood-input.png" alt="Flood Input Form" width="31%">
-  <img src="Screenshots/5-flood-process.png" alt="Flood Loading Spinner" width="31%">
-  <img src="Screenshots/7-flood-output-metrics.png" alt="Flood Prediction Classification Metrics" width="31%">
+  <img src="screenshots/4-flood-input.png" alt="Flood Input Form" width="31%">
+  <img src="screenshots/5-flood-process.png" alt="Flood Loading Spinner" width="31%">
+  <img src="screenshots/7-flood-output-metrics.png" alt="Flood Prediction Classification Metrics" width="31%">
 </div>
 
 #### 3. 🌧️ Rainfall Forecasting Module
 <div align="center">
-  <img src="Screenshots/8-rain-input.png" alt="Rainfall Input Form" width="31%">
-  <img src="Screenshots/9-rain-process.png" alt="Rainfall Loading Spinner" width="31%">
-  <img src="Screenshots/11-rain-output-metrics.png" alt="Rainfall Performance Scores" width="31%">
+  <img src="screenshots/8-rain-input.png" alt="Rainfall Input Form" width="31%">
+  <img src="screenshots/9-rain-process.png" alt="Rainfall Loading Spinner" width="31%">
+  <img src="screenshots/11-rain-output-metrics.png" alt="Rainfall Performance Scores" width="31%">
 </div>
 
 #### 4. Project Core & Team Showcase
 <div align="center">
-  <img src="Screenshots/13-about.png" alt="Technical Modules Overview Section" width="48%">
-  <img src="Screenshots/14-about.png" alt="Team-204 Showcase Grid" width="48%">
+  <img src="screenshots/13-about.png" alt="Technical Modules Overview Section" width="48%">
+  <img src="screenshots/14-about.png" alt="Team-204 Showcase Grid" width="48%">
 </div>
 
 </details>
@@ -116,8 +116,8 @@ Below is the dynamic results presentation alongside the technical details panel.
 
 ```text
 📦 DSN2099
- ┣ 📂 Screenshots/         # High-resolution UI screenshots and WebM recording
- ┣ 📂 app/                 # Modern Optimized Application (V1.0)
+ ┣ 📂 screenshots/         # High-resolution UI screenshots and WebM recording
+ ┣ 📂 app/                 # Modern Optimized Application (v1.0)
  ┃ ┣ 📂 data/              # Active river worksheets & IMD rainfall CSV
  ┃ ┃ ┗ 📂 forecast/        # Dynamic ARIMA forecasted river CSV files
  ┃ ┣ 📂 static/            # Design system, SVGs, and generated plots
@@ -229,7 +229,7 @@ This repository originated as an academic project for **VIT Bhopal University** 
 <br/>
 
 > [!NOTE]
-> **V1.0 Overhaul:** While the initial data gathering and legacy model iterations were developed collaboratively by the collective team, the complete system architectural overhaul, 1D-CNN model cache integration, dynamic dark-mode Matplotlib engine, responsive glassmorphic loaders, and the entire premium V1.0 CSS design system were engineered by [**Kavya**](https://github.com/varaxion).
+> **v1.0 Overhaul:** While the initial data gathering and legacy model iterations were developed collaboratively by the collective team, the complete system architectural overhaul, 1D-CNN model cache integration, dynamic dark-mode Matplotlib engine, responsive glassmorphic loaders, and the entire premium v1.0 CSS design system were engineered by [**Kavya**](https://github.com/varaxion).
 
 <br/>
 <div align="center">
