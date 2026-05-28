@@ -23,7 +23,7 @@
 
 ## 📸 Application Gallery
 
-### 🖥️ The First Impression
+### The First Impression
 Below is the modern, dark-glassmorphic landing interface of Sahay.
 
 <div align="center">
@@ -32,7 +32,7 @@ Below is the modern, dark-glassmorphic landing interface of Sahay.
 
 <br/>
 
-### 🌟 Feature Landing Pages
+### Feature Landing Pages
 Below are the parameter input interfaces for both hydrological modules, cleanly separated for user interaction.
 
 <div align="center">
@@ -42,7 +42,7 @@ Below are the parameter input interfaces for both hydrological modules, cleanly 
 
 <br/>
 
-### 🔮 Hydrological Forecasts & CNN Outputs
+### Hydrological Forecasts & CNN Outputs
 Below are the Matplotlib dynamically plotted outputs (Discharge trends and CNN bar comparisons).
 
 <div align="center">
@@ -53,7 +53,7 @@ Below are the Matplotlib dynamically plotted outputs (Discharge trends and CNN b
 <br/>
 
 <details>
-<summary>📸 Click here to expand the full step-by-step UI walkthrough! (All 14 Screenshots)</summary>
+<summary>Click here to expand the full step-by-step UI walkthrough! (All 14 Screenshots)</summary>
 <br/>
 
 ### 1. Home & Navigation Flow
