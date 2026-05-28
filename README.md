@@ -32,12 +32,12 @@ Below is the modern, dark-glassmorphic landing interface of Sahay.
 
 <br/>
 
-### 🌟 Modular Features & Technical Overview
-Below is the core modules landing grid alongside our comprehensive technical framework dossier.
+### 🌟 Feature Landing Pages
+Below are the parameter input interfaces for both hydrological modules, cleanly separated for user interaction.
 
 <div align="center">
-  <img src="screenshots/2-home.png" alt="Sahay Core Feature Modules" width="48%">
-  <img src="screenshots/12-about.png" alt="Sahay Technical Approach Cards" width="48%">
+  <img src="screenshots/4-flood-input.png" alt="Flood Prediction Parameter Selection" width="48%">
+  <img src="screenshots/8-rain-input.png" alt="Rainfall Subdivision Parameter Selection" width="48%">
 </div>
 
 <br/>
@@ -53,30 +53,53 @@ Below are the Matplotlib dynamically plotted outputs (Discharge trends and CNN b
 <br/>
 
 <details>
-<summary>📸 Click here to see the full Step-by-Step UI walkthrough!</summary>
+<summary>📸 Click here to expand the full step-by-step UI walkthrough! (All 14 Screenshots)</summary>
 <br/>
 
-#### 1. Landing & Navigation Scroll
-<img src="screenshots/3-home.png" alt="Scrolled Features view" width="100%">
+### 1. Home & Navigation Flow
+Visual presentation of the dark-mode landing experience, smooth scrolled transitions, and floating header navigation.
 
-#### 2. Flood Prediction Module Flow
 <div align="center">
-  <img src="screenshots/4-flood-input.png" alt="Flood Input Form" width="31%">
-  <img src="screenshots/5-flood-process.png" alt="Flood Loading Spinner" width="31%">
-  <img src="screenshots/7-flood-output-metrics.png" alt="Flood Prediction Classification Metrics" width="31%">
+  <img src="screenshots/1-home.png" alt="Landing Hero" width="31%">
+  <img src="screenshots/2-home.png" alt="Core Modules Grid" width="31%">
+  <img src="screenshots/3-home.png" alt="Scrolled Features" width="31%">
 </div>
 
-#### 3. Rainfall Forecasting Module Flow
+<br/>
+
+### 2. Flood Prediction Pipeline Flow
+The full prediction lifecycle: from custom date input parameters, through the glowing active loader, to the final dynamic chart results and LDA classification table.
+
 <div align="center">
-  <img src="screenshots/8-rain-input.png" alt="Rainfall Input Form" width="31%">
-  <img src="screenshots/9-rain-process.png" alt="Rainfall Loading Spinner" width="31%">
-  <img src="screenshots/11-rain-output-metrics.png" alt="Rainfall Performance Scores" width="31%">
+  <img src="screenshots/4-flood-input.png" alt="Flood Input Form" width="48%">
+  <img src="screenshots/5-flood-process.png" alt="Active Loader Spinner" width="48%">
+  <br/><br/>
+  <img src="screenshots/6-flood-output-graph.png" alt="Dynamic Discharge Trend Chart" width="48%">
+  <img src="screenshots/7-flood-output-metrics.png" alt="Classification Table & MAE" width="48%">
 </div>
 
-#### 4. Project Core & Team Showcase
+<br/>
+
+### 3. Rainfall Forecasting Module Flow
+The full analysis lifecycle: from subdivision select triggers, through the local model loading state, to the dynamically formatted 1D-CNN monthly bar chart comparison and performance metrics.
+
 <div align="center">
-  <img src="screenshots/13-about.png" alt="Technical Modules Overview Section" width="48%">
-  <img src="screenshots/14-about.png" alt="Team-204 Showcase Grid" width="48%">
+  <img src="screenshots/8-rain-input.png" alt="Rainfall Input Form" width="48%">
+  <img src="screenshots/9-rain-process.png" alt="Active Loader Spinner" width="48%">
+  <br/><br/>
+  <img src="screenshots/10-rain-output-graph.png" alt="1D-CNN Predictions Bar Chart" width="48%">
+  <img src="screenshots/11-rain-output-metrics.png" alt="Performance Evaluation Scores" width="48%">
+</div>
+
+<br/>
+
+### 4. Technical Dossier & Team Showcase (About Page)
+High-level overview of our technical approach layers, newly added Core Modules grids, and the hyperlinked Team-204 member grid.
+
+<div align="center">
+  <img src="screenshots/12-about.png" alt="Technical Approach Cards" width="31%">
+  <img src="screenshots/13-about.png" alt="Core Modules Grid" width="31%">
+  <img src="screenshots/14-about.png" alt="Team-204 Credits Grid" width="31%">
 </div>
 
 </details>
