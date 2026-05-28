@@ -10,6 +10,71 @@ def futCal(userDate, endDate):
         return 1
     return 0
 
+def plot_flood_graph(filename, data, selected_idx, is_future=False):
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    
+    # Get window of 15 days before and 15 days after
+    start_idx = max(0, selected_idx - 15)
+    end_idx = min(len(data) - 1, selected_idx + 15)
+    
+    window_data = data.iloc[start_idx:end_idx + 1]
+    dates = pd.to_datetime(window_data['Date'])
+    
+    # The discharge column is 'Discharge'
+    y_values = window_data['Discharge']
+    
+    selected_date = pd.to_datetime(data['Date'].iloc[selected_idx])
+    selected_val = data['Discharge'].iloc[selected_idx]
+    
+    fig = plt.figure(figsize=(12, 7))
+    fig.suptitle(f"Discharge Trend - {filename.capitalize()}", fontsize=18, color='#f1f5f9', fontweight='bold', y=0.96)
+    
+    ax = fig.add_subplot(111)
+    
+    line_color = '#3b82f6' if not is_future else '#a78bfa'
+    label_text = 'Historical Discharge' if not is_future else 'Forecasted Discharge'
+    
+    ax.plot(dates, y_values, color=line_color, linewidth=2.5, label=label_text)
+    
+    # Highlight the selected date
+    ax.axvline(x=selected_date, color='#ef4444', linestyle='--', alpha=0.8, linewidth=1.5, label='Selected Date')
+    ax.scatter(selected_date, selected_val, color='#ef4444', s=100, zorder=5, edgecolor='#f1f5f9', linewidth=1.5)
+    
+    # Add value annotation
+    ax.annotate(f"{selected_val:.2f}", 
+                xy=(selected_date, selected_val), 
+                xytext=(10, 10), 
+                textcoords='offset points', 
+                color='#ef4444', 
+                fontweight='bold',
+                fontsize=12,
+                bbox=dict(boxstyle="round,pad=0.3", fc="#0d1424", ec="#ef4444", lw=1, alpha=0.8))
+
+    ax.set_ylabel("Discharge (m³/s)", fontsize=14, color='#f1f5f9', fontweight='bold', labelpad=15)
+    ax.set_xlabel("Date", fontsize=14, color='#f1f5f9', fontweight='bold', labelpad=15)
+    
+    leg = ax.legend(fontsize=13, facecolor='#0d1424', edgecolor='none')
+    for text in leg.get_texts():
+        text.set_color('#f1f5f9')
+
+    ax.set_facecolor('#0d1424')
+    fig.patch.set_facecolor('#0a0e1a')
+    ax.tick_params(colors='#f1f5f9', labelsize=11)
+    ax.grid(True, linestyle='--', alpha=0.15, color='#94a3b8')
+    
+    # Format x-axis dates nicely
+    fig.autofmt_xdate()
+
+    img_path = os.path.join(BASE_DIR, 'static', 'img', 'flood.png')
+    
+    # Ensure static/img directory exists
+    os.makedirs(os.path.dirname(img_path), exist_ok=True)
+    
+    plt.savefig(img_path, facecolor=fig.get_facecolor(), bbox_inches='tight', dpi=120)
+    plt.close(fig)
+
 def drive(filename, userDate):
     try:
         # Standardize lowercase filenames
@@ -43,6 +108,7 @@ def drive(filename, userDate):
 
             for i in range(len(data)):
                 if data['Date'].iloc[i].date() == userDate.date():
+                    plot_flood_graph(filename, data, i, is_future=False)
                     return existingPrediction(i)
 
             return None
@@ -80,6 +146,7 @@ def drive(filename, userDate):
 
             for i in range(len(data1)):
                 if data1['Date'].iloc[i].date() == userDate.date():
+                    plot_flood_graph(filename, data1, i, is_future=True)
                     return futurePrediction(i)
 
             return None

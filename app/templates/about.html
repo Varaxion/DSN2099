@@ -12,7 +12,7 @@
         <span>About</span>
     </nav>
     <h1 class="page-title">About Sahay</h1>
-    <p class="page-subtitle">Project Exhibition - II, VIT Bhopal University (Developed in 2024)</p>
+    <p class="page-subtitle">Project Exhibition - II, VIT Bhopal University, 2024</p>
 </div>
 
 <div class="about-layout" id="aboutLayout">
@@ -110,9 +110,37 @@
         </div>
     </div>
 
+    <!-- Core Modules Overview -->
+    <div class="glass-card about-intro fade-in fade-in-delay-2" id="modulesOverviewCard">
+        <h2 style="font-size: 20px; font-weight: 700; margin-bottom: 24px; background: var(--gradient);
+                   -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
+            Core Modules Overview
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px;">
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 24px; transition: var(--transition);" class="tech-item-alt">
+                <h3 style="font-size: 17px; font-weight: 700; color: #60a5fa; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    🌊 Flood Prediction Pipeline
+                </h3>
+                <p style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.75; margin: 0;">
+                    Predicts hydrological discharge and classifies flood risk (Normal/High) using historical water level parameters.
+                    It performs real-time <strong>ARIMA forecasting</strong> to project future river metrics up to late 2026, and leverages a trained <strong>Linear Discriminant Analysis (LDA)</strong> model for accurate state classification. It covers five major Indian river catchments (Cauvery, Godavari, Krishna, Mahanadi, Son).
+                </p>
+            </div>
+            <div style="background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); border-radius: var(--radius-md); padding: 24px; transition: var(--transition);" class="tech-item-alt">
+                <h3 style="font-size: 17px; font-weight: 700; color: #c084fc; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+                    🌧️ Rainfall Analysis & Forecasting
+                </h3>
+                <p style="font-size: 14.5px; color: var(--text-secondary); line-height: 1.75; margin: 0;">
+                    Analyzes and forecasts monthly precipitation across all 36 meteorological subdivisions of India.
+                    Powered by a robust <strong>1D Convolutional Neural Network (CNN)</strong> trained on over a century of historical IMD data (1901–2021). The model leverages local model caching to prevent redundant training, returning predictions instantly and rendering beautiful visual comparisons between prediction trends and ground truth.
+                </p>
+            </div>
+        </div>
+    </div>
+
     <!-- Team -->
-    <div class="glass-card team-section fade-in fade-in-delay-2" id="teamCard">
-        <h2 class="team-title">Team-204</h2>
+    <div class="glass-card team-section fade-in fade-in-delay-3" id="teamCard">
+        <h2 class="team-title">Team-204, B.Tech. CSE Core</h2>
         <div class="team-grid">
             <div class="team-member" id="memberKavya">
                 <div class="member-avatar" style="background: linear-gradient(135deg, #3b82f6, #06b6d4);">K</div>
