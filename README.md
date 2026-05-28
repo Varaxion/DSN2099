@@ -106,7 +106,7 @@ High-level overview of our technical approach layers, newly added Core Modules g
 
 ---
 
-## Overview & System Features
+## 🌌 Overview & System Features
 
 **Sahay v1.0** is an end-to-end Hydrological Intelligence web application engineered to predict flood risks and analyze rainfall patterns across India. It bridges the gap between complex deep learning models and direct emergency preparedness.
 
@@ -120,7 +120,7 @@ High-level overview of our technical approach layers, newly added Core Modules g
 
 ---
 
-## Technology Stack
+## 🛠️ Technology Stack
 
 | Component | Technology | Description |
 | :--- | :--- | :--- |
@@ -168,7 +168,7 @@ High-level overview of our technical approach layers, newly added Core Modules g
 
 ---
 
-## Model Assumptions & Limitations
+## ⚠️ Model Assumptions & Limitations
 
 For academic transparency, Sahay's mathematical and neural pipelines rely on the following bounds:
 
@@ -186,7 +186,7 @@ For academic transparency, Sahay's mathematical and neural pipelines rely on the
 
 ---
 
-## Getting Started
+## 🚀 Getting Started
 
 Follow these step-by-step instructions to boot the Sahay intelligence platform on your local machine.
 
