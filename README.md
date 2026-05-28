@@ -21,53 +21,52 @@
 
 ---
 
-## 📽️ Interactive Media Showcase
-
-See the application in real-time! The screen recording below demonstrates the seamless, dark-mode animations, interactive inputs, dynamic graphs, and premium glassmorphic loaders.
-
-<div align="center">
-  <video src="screenshots/sahay.webm" width="100%" controls autoplay loop muted></video>
-</div>
-
----
-
 ## 📸 Application Gallery
 
-### 🌟 The Core Experience
-Below is the core presentation of Sahay's landing experience and responsive modular interface.
+### 🖥️ The First Impression
+Below is the modern, dark-glassmorphic landing interface of Sahay.
 
 <div align="center">
-  <img src="screenshots/1-home.png" alt="Sahay Home Hero" width="48%">
-  <img src="screenshots/2-home.png" alt="Sahay Core Feature Modules" width="48%">
+  <img src="screenshots/1-home.png" alt="Sahay Home Landing Hero" width="98%">
 </div>
 
-### 🔮 Predictive Outputs & Technical Overview
-Below is the dynamic results presentation alongside the technical details panel.
+<br/>
+
+### 🌟 Modular Features & Technical Overview
+Below is the core modules landing grid alongside our comprehensive technical framework dossier.
+
+<div align="center">
+  <img src="screenshots/2-home.png" alt="Sahay Core Feature Modules" width="48%">
+  <img src="screenshots/12-about.png" alt="Sahay Technical Approach Cards" width="48%">
+</div>
+
+<br/>
+
+### 🔮 Hydrological Forecasts & CNN Outputs
+Below are the Matplotlib dynamically plotted outputs (Discharge trends and CNN bar comparisons).
 
 <div align="center">
   <img src="screenshots/6-flood-output-graph.png" alt="Dynamic Flood Forecast Line Chart" width="48%">
   <img src="screenshots/10-rain-output-graph.png" alt="1D-CNN Rainfall Comparison Bar Chart" width="48%">
-  <br/><br/>
-  <img src="screenshots/12-about.png" alt="Sahay Technical Approach Cards" width="98%">
 </div>
 
 <br/>
 
 <details>
-<summary>📸 Click here to expand the full step-by-step UI walkthrough! (Remaining Screenshots)</summary>
+<summary>📸 Click here to see the full Step-by-Step UI walkthrough!</summary>
 <br/>
 
 #### 1. Landing & Navigation Scroll
 <img src="screenshots/3-home.png" alt="Scrolled Features view" width="100%">
 
-#### 2. 🌊 Flood Prediction Pipeline
+#### 2. Flood Prediction Module Flow
 <div align="center">
   <img src="screenshots/4-flood-input.png" alt="Flood Input Form" width="31%">
   <img src="screenshots/5-flood-process.png" alt="Flood Loading Spinner" width="31%">
   <img src="screenshots/7-flood-output-metrics.png" alt="Flood Prediction Classification Metrics" width="31%">
 </div>
 
-#### 3. 🌧️ Rainfall Forecasting Module
+#### 3. Rainfall Forecasting Module Flow
 <div align="center">
   <img src="screenshots/8-rain-input.png" alt="Rainfall Input Form" width="31%">
   <img src="screenshots/9-rain-process.png" alt="Rainfall Loading Spinner" width="31%">
@@ -84,21 +83,21 @@ Below is the dynamic results presentation alongside the technical details panel.
 
 ---
 
-## 🌌 Overview & System Features
+## Overview & System Features
 
 **Sahay v1.0** is an end-to-end Hydrological Intelligence web application engineered to predict flood risks and analyze rainfall patterns across India. It bridges the gap between complex deep learning models and direct emergency preparedness.
 
-### ✨ Core platform highlights:
-* 🌊 **Flood Prediction Pipeline:** Forecasts hydrological discharge, flood runoff, daily runoff, and weekly runoff up to late 2026 for five major Indian river catchments (Cauvery, Godavari, Krishna, Mahanadi, Son). It applies **ARIMA time-series models** and classifies the output risk state (Normal / High) utilizing a pre-trained **Linear Discriminant Analysis (LDA)** classifier.
-* 🌧️ **1D-CNN Rainfall Analysis:** Forecasts monthly precipitation (April–December) across all 36 meteorological subdivisions of India using a **1D Convolutional Neural Network** trained on over 120 years of IMD climate records (1901–2021).
-* ⚡ **Model Cache Optimization:** Eliminates slow model retraining by dynamically serializing and caching trained CNN models (`.h5` formats) per subdivision. Subsequent regional queries load in milliseconds!
-* 📈 **Dynamic Chart Generation:** Instantly generates high-readability, color-synchronized charts using Matplotlib (Agg backend). Highlights prediction nodes and trendlines within a glassmorphic color coordinate system.
-* ⏳ **Premium Loader States:** Interactive submit buttons that slide and collapse on submission to yield high-fidelity, glowing circular CSS loading spinners.
-* 🏛️ **Legacy Preservation:** The entire historical codebase (`v0`), including the original training Prophet scripts, data workbooks, original screenshots, and academic PDFs, is fully preserved inside `v0Archive/` to document the project's evolution.
+### Core platform highlights:
+* **Flood Prediction Pipeline:** Forecasts hydrological discharge, flood runoff, daily runoff, and weekly runoff up to late 2026 for five major Indian river catchments (Cauvery, Godavari, Krishna, Mahanadi, Son). It applies ARIMA time-series models and classifies the output risk state (Normal / High) utilizing a pre-trained Linear Discriminant Analysis (LDA) classifier.
+* **1D-CNN Rainfall Analysis:** Forecasts monthly precipitation (April–December) across all 36 meteorological subdivisions of India using a 1D Convolutional Neural Network trained on over 120 years of IMD climate records (1901–2021).
+* **Model Cache Optimization:** Eliminates slow model retraining by dynamically serializing and caching trained CNN models (`.h5` formats) per subdivision. Subsequent regional queries load in milliseconds!
+* **Dynamic Chart Generation:** Instantly generates high-readability, color-synchronized charts using Matplotlib (Agg backend). Highlights prediction nodes and trendlines within a glassmorphic color coordinate system.
+* **Premium Loader States:** Interactive submit buttons that slide and collapse on submission to yield high-fidelity, glowing circular CSS loading spinners.
+* **Legacy Preservation:** The entire historical codebase (`v0`), including the original training Prophet scripts, data workbooks, original screenshots, and academic PDFs, is fully preserved inside `v0Archive/` to document the project's evolution.
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 | Component | Technology | Description |
 | :--- | :--- | :--- |
@@ -116,7 +115,7 @@ Below is the dynamic results presentation alongside the technical details panel.
 
 ```text
 📦 DSN2099
- ┣ 📂 screenshots/         # High-resolution UI screenshots and WebM recording
+ ┣ 📂 screenshots/         # High-resolution UI screenshots
  ┣ 📂 app/                 # Modern Optimized Application (v1.0)
  ┃ ┣ 📂 data/              # Active river worksheets & IMD rainfall CSV
  ┃ ┃ ┗ 📂 forecast/        # Dynamic ARIMA forecasted river CSV files
@@ -146,7 +145,7 @@ Below is the dynamic results presentation alongside the technical details panel.
 
 ---
 
-## ⚠️ Model Assumptions & Limitations
+## Model Assumptions & Limitations
 
 For academic transparency, Sahay's mathematical and neural pipelines rely on the following bounds:
 
@@ -164,7 +163,7 @@ For academic transparency, Sahay's mathematical and neural pipelines rely on the
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 Follow these step-by-step instructions to boot the Sahay intelligence platform on your local machine.
 
