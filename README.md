@@ -236,9 +236,19 @@ flask --app app run --debug
 
 ---
 
+## ⏭️ Project Continuation
+
+This project was later expanded and continued as a comprehensive **Predictive Disaster Intelligence & Rapid Emergency Response** portal under the **EPICS (DSN3099)** course.
+
+The new iteration introduces major features including a lightning-fast Blood Bank Locator, Emergency Contacts Directory, Interactive Disaster SOPs, and an Incident Reporting Simulator.
+
+🔗 **[Explore the DSN3099 Project Repository Here](https://github.com/Varaxion/DSN3099)**
+
+---
+
 ## 🎓 Academic Origins & Contribution
 
-This repository originated as an academic project for **VIT Bhopal University** (Team-204). The original conceptual prototype was a collaborative effort by the following team members:
+This repository originated as an academic project for **VIT Bhopal University** by **Team-204** as part of the **Project Exhibition - I** course in 2024. The original conceptual prototype was a collaborative effort by the following team members:
 
 | Name | Registration No. |
 | :--- | :---: |
@@ -251,9 +261,11 @@ This repository originated as an academic project for **VIT Bhopal University** 
 <br/>
 
 > [!NOTE]
-> **v1.0 Overhaul:** While the initial data gathering and legacy model iterations were developed collaboratively by the collective team, the complete system architectural overhaul, 1D-CNN model cache integration, dynamic dark-mode Matplotlib engine, responsive glassmorphic loaders, and the entire premium v1.0 CSS design system were engineered by [**Kavya**](https://github.com/varaxion).
+> **v1.0 Overhaul:** While the initial data gathering and legacy model iterations were developed collaboratively by the collective team, the complete system architectural overhaul, 1D-CNN model cache integration, dynamic dark-mode Matplotlib engine, responsive glassmorphic loaders, and the entire premium v1.0 CSS design system were engineered by **Kavya**.
 
 <br/>
 <div align="center">
   <em>Sahay • Advancing Hydrological Safety through Intelligence.</em>
+  <br />
+  <strong>Re-engineered by Kavya</strong>
 </div>
