@@ -7,6 +7,7 @@
   <br />
 
   ![Version](https://img.shields.io/badge/version-1.0-blue.svg?style=for-the-badge)
+  ![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)
   ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
   ![Tensorflow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
   ![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
@@ -243,6 +244,12 @@ This project was later expanded and continued as a comprehensive **Predictive Di
 The new iteration introduces major features including a lightning-fast Blood Bank Locator, Emergency Contacts Directory, Interactive Disaster SOPs, and an Incident Reporting Simulator.
 
 🔗 **[View DSN3099 Repository](https://github.com/Varaxion/DSN3099)**
+
+---
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
