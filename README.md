@@ -242,7 +242,7 @@ This project was later expanded and continued as a comprehensive **Predictive Di
 
 The new iteration introduces major features including a lightning-fast Blood Bank Locator, Emergency Contacts Directory, Interactive Disaster SOPs, and an Incident Reporting Simulator.
 
-🔗 **[Explore the DSN3099 Project Repository Here](https://github.com/Varaxion/DSN3099)**
+🔗 **[View DSN3099 Repository](https://github.com/Varaxion/DSN3099)**
 
 ---
 
