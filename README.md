@@ -1,6 +1,6 @@
 <div align="center">
   
-  # 🌊 Sahay - Flood & Rainfall Intelligence
+  # Sahay - Flood & Rainfall Intelligence
   
   *Hydrological forecasting, risk classification, and monthly rainfall analysis for Indian river basins and meteorological subdivisions.*
   
@@ -248,7 +248,7 @@ The new iteration introduces major features including a lightning-fast Blood Ban
 
 ## 🎓 Academic Origins & Contribution
 
-This repository originated as an academic project for **VIT Bhopal University** by **Team-204** as part of the **Project Exhibition - I** course in 2024. The original conceptual prototype was a collaborative effort by the following team members:
+This repository originated as an academic project for **VIT Bhopal University** by **Team-204** as part of the **Project Exhibition - II** course in 2024. The original conceptual prototype was a collaborative effort by the following team members:
 
 | Name | Registration No. |
 | :--- | :---: |
