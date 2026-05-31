@@ -17,5 +17,8 @@ IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+**EXCEPTION FOR ACADEMIC DOCUMENTATION:**
+The permissions granted by this MIT License apply solely to the source code of this software. All academic documentation, project reports, presentations, and syllabus materials located in the `v0Archive/docs/` directory are explicitly EXCLUDED from this license. These materials remain the intellectual property of their respective authors and VIT Bhopal University, and may not be redistributed or repurposed without explicit permission.

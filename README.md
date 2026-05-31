@@ -249,7 +249,10 @@ The new iteration introduces major features including a lightning-fast Blood Ban
 
 ## 📜 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+The source code in this project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+> [!WARNING]
+> **Documentation Exception:** All academic documentation, reports, and presentations located within the `v0Archive/docs/` directory are explicitly excluded from this license and remain the restricted intellectual property of their respective authors and VIT Bhopal University.
 
 ---
 
