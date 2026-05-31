@@ -266,6 +266,6 @@ This repository originated as an academic project for **VIT Bhopal University** 
 <br/>
 <div align="center">
   <em>Sahay • Advancing Hydrological Safety through Intelligence.</em>
-  <br />
-  <strong>Re-engineered by Kavya</strong>
+  <br /><br />
+  <p style="font-size: 13px; color: #8b949e; letter-spacing: 0.5px;">&mdash; Re-engineered by Kavya &mdash;</p>
 </div>
